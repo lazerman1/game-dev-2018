@@ -1,0 +1,15 @@
+<input type=text id="myText01" value=3>
+ 
+<input type=button value="run for loop" onclick="{
+
+  document.getElementById('myDiv01').innerHTML = ''
+
+  for (let x=0;   x <
+document.getElementById('myText').value;      x++){
+     document.getElementById('myDiv01').innerHTML += `x
+is ` + x + `<br>`
+  }
+
+}">
+
+<div id="myDiv01"></div>
