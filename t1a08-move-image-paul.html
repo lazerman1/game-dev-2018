@@ -2,7 +2,6 @@
 
 <script>
 
-
 function myHitOther(my1,my2){
    left1   = parseInt(document.getElementById(my1).style.left)
    right1  = left1 + parseInt(document.getElementById(my1).style.width)
@@ -22,71 +21,112 @@ function myHitOther(my1,my2){
 
 
 myStart = new Date().getTime()
-
 document.onkeydown = checkKey;
-
 function checkKey(myEvent) {
    let myEnd = new Date().getTime()
    let myDuration = Math.round((myEnd-myStart)/1000)
-   document.getElementById('myDiv01').innerHTML = 'seconds: ' + myDuration + ', keyCode: '+myEvent.keyCode
-
+   document.getElementById('myDiv01').innerHTML = 'seconds: ' + myDuration + 
+', keyCode: '+myEvent.keyCode
+   
    if (myHitOther('myImage01','myImage02')){
       document.getElementById('myDiv01').innerHTML += '<br> Alien.Destroyed'
-      }
-   
+   }
 
+
+   if (myEvent.keyCode == 38){ 
+    document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
+    document.getElementById('myImage01').style.transform= 'rotate(0deg)'
+   }    // up arrow = 38   
     if (myEvent.keyCode == 37){ 
     document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) - 5 + 'px'
     document.getElementById('myImage01').style.transform= 'rotate(270deg)'
-}    // <-- arrow = 37
-
-    if (myEvent.keyCode == 38){ 
-    document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
-    document.getElementById('myImage01').style.transform= 'rotate(0deg)'
-   }    // up arrow = 38
-
-   if (myEvent.keyCode == 39){ 
+   }    // <-- arrow = 37
+    if (myEvent.keyCode == 39){ 
     document.getElementById('myImage01').style.right = parseInt(document.getElementById('myImage01').style.right) - 5 + 'px'
     document.getElementById('myImage01').style.transform= 'rotate(90deg)'
    }    // --> arrow = 39
-
   if (myEvent.keyCode == 40){ 
-    document.getElementById('myImage01').style.down = parseInt(document.getElementById('myImage01').style.down) - 5 + 'px'
+    document.getElementById('myImage01').style.down = parseInt(document.getElementById('myImage01').style.down) + 5 + 'px'
     document.getElementById('myImage01').style.transform= 'rotate(180deg)'
 }    // down arrow = 40
-
   if (myEvent.keyCode == 87){ document.getElementById('myImage02').style.top = 
          parseInt(document.getElementById('myImage02').style.top) - 5 + 'px'}    // W = 87
-
 }
 
 </script>
 
-<div id="myDiv01">Destroy.Alien</div>
+Score: <input id="myScore" type=number value=0><br>
+
+<div id="myDiv01">...</div>
 
 <img id="myImage01" width=40 src="http://www.animatedimages.org/data/media/600/animated-rocket-and-space-shuttle-image-0032.gif" 
     style="position:absolute; width:40px; height:120px; left:200px; top:150px">
 
 <img id="myImage02" width=40 src="http://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0163.gif" 
-    style="position:absolute; width:40px; height:40px;  left:200px; top:50px">
+    style="position:absolute; width:40px; height:40px;  left:200px; top:30px">
 
 <input type=button value="Up" onclick="{
-   console.log('up start')
+   document.getElementById('myDiv01').innerHTML = '...'
    document.getElementById('myImage01').style.top = 
      parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
+   if (myHitOther('myImage01','myImage02')){
+         document.getElementById('myImage01').style.top ='200px'
+         document.getElementById('myDiv01').innerHTML = 'Ouch'
+         document.getElementById('myScore').value = 200
+   }
+}">
+
+</script>
+
+<body id="myBody" style="background-repeat:repeat; background-size: 80%" background=
+https://images.pexels.com/photos/262738/pexels-photo-262738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+desert image.com
+
+
+<div id="myDiv01">Destroy.Alien</div>
+
+
+<input type=button value="D" onclick="{
+   console.log('up start')
+   document.getElementById('myImage01').style.left = 
+     parseInt(document.getElementById('myImage01').style.left) + 5 + 'px'
    if (myHitOther('myImage01','myImage02')){
    }
    console.log('up end')
 }">
 
-<input type=button value="Down" onclick="{
-   console.log('up start')
-   document.getElementById('myImage01').reset(); 
-     parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
-   if (myHitOther('myImage01','myImage02')){
-   }
-   console.log('down end')
+
+<script>
+   let myGlobalX = 0
+   let myclock
+</script>
+
+<input id="myButton01" type=button value="background move left" onclick="{
+  myTemp = '100px 0px'
+  myGlobalX -= 5
+  myTemp = myGlobalX + 'px 0px'
+  document.getElementById('myBody').style.backgroundPosition =myTemp
+
 }">
 
-<form action="/t1a08-move-image-paul">
-<input type="reset" value="Reset">
+<input type=button value="Auto Background Left" onclick="{
+  clearInterval(myClock)
+  myClock = setInterval(function(){
+     document.getElementById('myButton01').click()
+  }, 100) 
+
+}">
+
+<input type=button value="right" onclick="{
+   console.log('up start')
+   document.getElementById('myImage01').style.right = 
+     parseInt(document.getElementById('myImage01').style.right) - 5 + 'px'
+   if (myHitOther('myImage01','myImage02')){
+   }
+   console.log('up end')
+}">
+
+<img id="myImage01" style="position:relative; width:100px: height:80px; left:0px;"
+src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSmFN9zHggLDWSDrKz8fR4HAy86hzURSdEiu-qcDEiY_ll7bWOqtPVZvhq->
+align=center > My Moving images by Paul</h3>
+
