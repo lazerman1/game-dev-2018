@@ -1,0 +1,25 @@
+<textarea rows=4 cols=70 id="myArea01">Hello how are you</textarea>
+<input type=button value="encrypt" onclick="{   
+    let myTemp = ''
+myString = document.getElementById('myArea01').value.toLowerCase().split('')
+
+
+   for (let myLoop=0;   myLoop < myString.length; myLoop++){
+     myTemp = myString[myLoop]
+     if (myString[myLoop] == 'e') {myTemp  = 'f'}
+     if (myString[myLoop] == 'h') {myTemp  = 'i'}
+   
+     //alert(myLoop+', '+myString[myLoop])
+
+     myString[myLoop] = myTemp
+  }
+
+  document.getElementById('myArea02').value = myString.join('')
+  }"><br><br>
+
+<textarea rows=4 cols=70 id="myArea02"></textarea>
+
+
+
+<textarea rows=4 cols=70 id="myArea03"></textarea>
+
