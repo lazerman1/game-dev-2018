@@ -1,0 +1,33 @@
+<body id="myBody" style="background-repeat:repeat; background-size: 50%" background=
+https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSmFN9zHggLDWSDrKz8fR4HAy86hzURSdEiu-qcDEiY_ll7bWOqtPVZvhq->
+
+<script>
+   let myGlobalX = 0
+   let myclock
+</script>
+
+<input id="myButton01" type=button value="background move left" onclick="{
+  myTemp = '100px 0px'
+  myGlobalX -= 5
+  myTemp = myGlobalX + 'px 0px'
+  document.getElementById('myBody').style.backgroundPosition =myTemp
+
+}">
+
+<input id="myButton02" type=button value="Auto Background Left" onclick="{
+  myTemp = '100px 0px'
+  myGlobalX -= 5
+  myTemp = myGlobalX + 'px 0px'
+  document.getElementById('myBody').style.backgroundPosition =myTemp
+
+}">
+
+<input type=button value="Image Right" onclick="{
+  document.getElementById(myImage01').style.right =
+parseInt(document.getElementById('myImage01').style.right) - 10 + 'px'
+}"><br><br>
+
+<img id="myImage01" style="position:relative; width:100px: height:80px; left:0px;"
+src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSmFN9zHggLDWSDrKz8fR4HAy86hzURSdEiu-qcDEiY_ll7bWOqtPVZvhq->
+align=center > My Moving images by Paul</h3>
+
