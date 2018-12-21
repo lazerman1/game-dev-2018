@@ -38,14 +38,10 @@ function checkKey(myEvent) {
     document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
     document.getElementById('myImage01').style.transform= 'rotate(0deg)'
    }    // up arrow = 38   
-    if (myEvent.keyCode == 37){ 
-    document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) - 5 + 'px'
-    document.getElementById('myImage01').style.transform= 'rotate(270deg)'
-   }    // <-- arrow = 37
-   if (myEvent.keyCode == 40){ 
-    document.getElementById('myImage01').style.down = parseInt(document.getElementById('myImage01').style.down) + 5 + 'px'
-    document.getElementById('myImage01').style.transform= 'rotate(180deg)'
-}    // down arrow = 40
+    if (myEvent.keyCode == 39){ 
+    document.getElementById('myImage01').style.right = parseInt(document.getElementById('myImage01').style.right) - 5 + 'px'
+    document.getElementById('myImage01').style.transform= 'rotate(0deg)' 
+   }  // right arrow = 39
   if (myEvent.keyCode == 87){ document.getElementById('myImage02').style.top = 
          parseInt(document.getElementById('myImage02').style.top) - 5 + 'px'}    // W = 87
 }
@@ -56,7 +52,7 @@ Score: <input id="myScore" type=number value=0><br>
 
 <div id="myDiv01">...</div>
 
-<img id="myImage01" width=40 src="https://66.media.tumblr.com/a5dfff5c67d9a177487ac5c022680017/tumblr_n5jlhjgblX1sr2dyno1_250.gif"
+<img id="myImage01" width=40 src="flamey"
     style="position:absolute; width:80px; height:120px; left:200px; top:150px">
 
 <img id="myImage02" width=40 src="http://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0163.gif" 
@@ -74,9 +70,9 @@ Score: <input id="myScore" type=number value=0><br>
 }">
 </script>
 
-<body id="myBody" style="background-repeat:repeat; background-size: 60%" background=
-https://images.pexels.com/photos/262738/pexels-photo-262738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-desert image.com
+<body id="myBody" style="background-repeat:repeat; background-size: 50%" background=
+https://images.pexels.com/photos/1040499/pexels-photo-1040499.jpeg?cs=
+srgb&dl=abstract-art-black-background-1040499.jpg&fm=jpg
 
 
 <div id="myDiv01">Destroy.Alien</div>
