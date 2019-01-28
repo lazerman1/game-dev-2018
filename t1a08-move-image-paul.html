@@ -20,6 +20,8 @@ function myHitOther(my1,my2){
 }
 
 
+
+
 myStart = new Date().getTime()
 document.onkeydown = checkKey;
 function checkKey(myEvent) {
@@ -30,19 +32,42 @@ function checkKey(myEvent) {
    
    if (myHitOther('myImage01','myImage02')){
       document.getElementById('myDiv01').innerHTML += '<br> Alien.Destroyed'
+     alert('you destroyed alein')
+     location = 'http://www.google.ca'
    }
 
 
    
-    if (myEvent.keyCode == 38){ 
-    document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
+if (myEvent.keyCode == 38){ 
+    document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 20 + 'px'
     document.getElementById('myImage01').style.transform= 'rotate(0deg)'
-   }    // up arrow = 38   
+  
+
+
+
+ }    // up arrow = 38 
+
+
+  
     if (myEvent.keyCode == 39){ 
-      document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 5 + 'px'
+      document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 30 + 'px'
       document.getElementById('myImage01').style.transform= 'rotate(0deg)'
    }    // --> arrow = 39
-  if (myEvent.keyCode == 87){ document.getElementById('myImage02').style.top = 
+  
+    if (myEvent.keyCode == 37){ 
+      document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) - 30 + 'px'
+      document.getElementById('myImage01').style.transform= 'rotate(0deg)'
+   }    // <-- arrow = 37
+
+
+    if (myEvent.keyCode == 40){ 
+      document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) + 5 + 'px'
+      document.getElementById('myImage01').style.transform= 'rotate(0deg)'
+   }    // down arrow = 40
+
+
+
+if (myEvent.keyCode == 87){ document.getElementById('myImage02').style.top = 
          parseInt(document.getElementById('myImage02').style.top) - 5 + 'px'}    // W = 87
 }
 
@@ -52,16 +77,16 @@ Score: <input id="myScore" type=number value=0><br>
 
 <div id="myDiv01">...</div>
 
-<img id="myImage01" width=40 src="flamey"
-    style="position:absolute; width:80px; height:120px; left:200px; top:550px">
+<img id="myImage01" width=40 src="pix astro" 
+    style="position:absolute; width:40px; height:80px; left:70px; top:430px">
 
 <img id="myImage02" width=40 src="http://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0163.gif" 
-    style="position:absolute; width:40px; height:80px;  right:30px; top:350px">
+    style="position:absolute; width:40px; height:80px; left:900px; top:200px">
 
-<input type=button value="Up" onclick="{
+<input type=hidden value="Up" onclick="{
    document.getElementById('myDiv01').innerHTML = '...'
    document.getElementById('myImage01').style.top = 
-     parseInt(document.getElementById('myImage01').style.top) - 5 + 'px'
+     parseInt(document.getElementById('myImage01').style.top) - 30 + 'px'
    if (myHitOther('myImage01','myImage02')){
          document.getElementById('myImage01').style.top ='250px'
          document.getElementById('myDiv01').innerHTML = 'Ouch'
@@ -71,13 +96,10 @@ Score: <input id="myScore" type=number value=0><br>
 </script>
 
 <body id="myBody" style="background-repeat:repeat; background-size: 70%" background=
-https://images.pexels.com/photos/42263/foggy-mist-forest-trees-42263.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
+https://static3.scirra.net/images/newstore/products/4108/fb%20800x600.png
 
 
-<div id="myDiv01">Destroy.Alien</div>
-
-
-<input type=button value="D" onclick="{
+<input id="myButtonD" type=button value="D" onclick="{
    console.log('up start')
    document.getElementById('myImage01').style.top = 
      parseInt(document.getElementById('myImage01').style.top) + 5 + 'px'
@@ -90,10 +112,10 @@ https://images.pexels.com/photos/42263/foggy-mist-forest-trees-42263.jpeg?auto=c
 
 <script>
    let myGlobalX = 0
-   let myClock
+   let myClock, myClock2
 </script>
 
-<input id="myButton01" type=button value="background move left" onclick="{
+<input id="myButton01" type=hidden value="background move left" onclick="{
   myTemp = '100px 20px'
   myGlobalX -= 5
   myTemp = myGlobalX + 'px 0px'
@@ -101,7 +123,7 @@ https://images.pexels.com/photos/42263/foggy-mist-forest-trees-42263.jpeg?auto=c
 
 }">
 
-<input type=button value="Auto Background Left" onclick="{
+<input type=hidden id = "d2"value="Auto Background Left" onclick="{
   clearInterval(myClock)
   myClock = setInterval(function(){
      document.getElementById('myButton01').click()
@@ -110,8 +132,22 @@ https://images.pexels.com/photos/42263/foggy-mist-forest-trees-42263.jpeg?auto=c
 }">
 
 
+<input type=hidden id="d1" value="Auto D" onclick="{
+  clearInterval(myClock2)
+  myClock2 = setInterval(function(){
+     document.getElementById('myButtonD').click()
+  }, 100) 
 
-<img id="myImage01" style="position:relative; width:100px: height:80px; left:0px;"
-src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSmFN9zHggLDWSDrKz8fR4HAy86hzURSdEiu-qcDEiY_ll7bWOqtPVZvhq->
-align=center > My Moving images by Paul</h3>
+}">
+
+<button onclick="myFunction()">Start</button>
+
+<script>
+function myFunction() {
+ // alert("Destroy the alien!");
+ document.getElementById('d1').click()
+ document.getElementById('d2').click()
+}
+</script>
+
 
