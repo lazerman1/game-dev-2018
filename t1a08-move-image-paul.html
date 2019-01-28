@@ -30,11 +30,23 @@ function checkKey(myEvent) {
    document.getElementById('myDiv01').innerHTML = 'seconds: ' + myDuration + 
 ', keyCode: '+myEvent.keyCode
    
+
    if (myHitOther('myImage01','myImage02')){
       document.getElementById('myDiv01').innerHTML += '<br> Alien.Destroyed'
      alert('you destroyed alein')
      location = 'http://www.google.ca'
    }
+
+
+
+   if (myHitOther('myImage01','myImage03')){
+     alert('You Lose')
+    // location = 't1a08-move-image-paul.html'
+
+   document.getElementById('myImage01').style.left = '30px'
+   }
+   
+
 
 
    
@@ -77,11 +89,12 @@ Score: <input id="myScore" type=number value=0><br>
 
 <div id="myDiv01">...</div>
 
-<img id="myImage01" width=40 src="pix astro" 
-    style="position:absolute; width:40px; height:80px; left:70px; top:430px">
+<img id="myImage01" width=40 src="pix astro" style="position:absolute; width:40px; height:80px; left:70px; top:430px">
 
-<img id="myImage02" width=40 src="http://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0163.gif" 
-    style="position:absolute; width:40px; height:80px; left:900px; top:200px">
+<img id="myImage02" width=40 src="http://www.animatedimages.org/data/media/33/animated-alien-and-extraterrestrial-image-0163.gif" style="position:absolute; width:40px; height:80px; left:900px; top:200px">
+
+<img id="myImage03" width=40 src="block.png"  style="position:absolute; visibility:visible; width:180px; height:180px; left:500px; top:400px">
+
 
 <input type=hidden value="Up" onclick="{
    document.getElementById('myDiv01').innerHTML = '...'
@@ -101,8 +114,7 @@ https://static3.scirra.net/images/newstore/products/4108/fb%20800x600.png
 
 <input id="myButtonD" type=button value="D" onclick="{
    console.log('up start')
-   document.getElementById('myImage01').style.top = 
-     parseInt(document.getElementById('myImage01').style.top) + 5 + 'px'
+   document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) + 5 + 'px'
    if (myHitOther('myImage01','myImage02')){
    }
    console.log('up end')
@@ -120,6 +132,10 @@ https://static3.scirra.net/images/newstore/products/4108/fb%20800x600.png
   myGlobalX -= 5
   myTemp = myGlobalX + 'px 0px'
   document.getElementById('myBody').style.backgroundPosition =myTemp
+
+  document.getElementById('myImage03').style.left = parseInt(document.getElementById('myImage03').style.left) - 5 + 'px'
+
+
 
 }">
 
@@ -149,5 +165,4 @@ function myFunction() {
  document.getElementById('d2').click()
 }
 </script>
-
 
