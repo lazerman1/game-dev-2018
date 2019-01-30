@@ -40,14 +40,14 @@ function checkKey(myEvent) {
 
 
    if (myHitOther('myImage01','myImage03')){
-      alert('You Lose.paul!alien!Spaceman balls')
+      alert('You Lose.')
       document.getElementById('myImage01').style.left = '30px'
       document.getElementById('myImage01').style.top= '400px'
    }
    
 
    if (myHitOther('myImage01','myImage04')){
-      alert('You Lose.paul!alien!Spaceman balls')
+      alert('You Lose.')
       document.getElementById('myImage01').style.left = '30px'
       document.getElementById('myImage01').style.top= '400px'
    }
@@ -185,3 +185,10 @@ function myFunction() {
 }
 </script>
 
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+<input  type="button" value="Use ResponsiveCode" onclick="{      
+    responsiveVoice.speak('I will get you Spaceman balls')                                              
+}"><br><br>
+
+                                            
